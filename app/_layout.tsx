@@ -1,4 +1,4 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { DarkTheme, ThemeProvider as NavThemeProvider } from '@react-navigation/native';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
@@ -7,6 +7,7 @@ import { useFonts } from 'expo-font';
 import { Inter_400Regular, Inter_500Medium, Inter_600SemiBold } from '@expo-google-fonts/inter';
 import { PlayfairDisplay_400Regular, PlayfairDisplay_600SemiBold, PlayfairDisplay_700Bold } from '@expo-google-fonts/playfair-display';
 import * as SplashScreen from 'expo-splash-screen';
+import { ThemeProvider } from '@/lib/ThemeContext';
 
 import '../global.css';
 
@@ -32,13 +33,14 @@ export default function RootLayout() {
     return null;
   }
 
-  // Always enforce a dark theme look for the app per Editorial Monolith guidelines
   return (
-    <ThemeProvider value={DarkTheme}>
-      <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: '#0A0E27' } }}>
-        <Stack.Screen name="index" />
-      </Stack>
-      <StatusBar style="light" />
+    <ThemeProvider>
+      <NavThemeProvider value={DarkTheme}>
+        <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: '#0A0E27' } }}>
+          <Stack.Screen name="index" />
+        </Stack>
+        <StatusBar style="auto" />
+      </NavThemeProvider>
     </ThemeProvider>
   );
 }

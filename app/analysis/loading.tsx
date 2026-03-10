@@ -7,10 +7,11 @@ import { analyzeDestiny } from '@/lib/gemini';
 import { MotiView, AnimatePresence } from 'moti';
 
 const messages = [
-  "Enerjin analiz ediliyor...",
-  "Doğum anındaki kozmik düzen okunuyor...",
-  "Kişilik desenlerin çözümleniyor...",
-  "Kader haritan oluşturuluyor..."
+  "Doğduğun an hesaplanıyor...",
+  "Kozmik desen okunuyor...",
+  "Nadir bir desen tespit edildi...",
+  "Gizli kişiliğin açığa çıkıyor...",
+  "Kader haritanız oluşturuluyor...",
 ];
 
 export default function LoadingScreen() {
